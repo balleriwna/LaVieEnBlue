@@ -1,617 +1,617 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Safe & Warm Space for You 🌸</title>
-    <!-- Tailwind CSS & Google Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #fff0f5 0%, #fce7f3 50%, #fbcfe8 100%);
-            overflow-x: hidden;
-        }
-        h1, h2, h3, .font-heading {
-            font-family: 'Fredoka', cursive;
-        }
-        
-        #fxCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Tintun 𖹭 ֶָ֢</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #f0f9ff;
+      --card-bg: #ffffff;
+      --accent-blue: #7dd3fc;
+      --dark-blue: #0284c7;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --soft-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15);
+    }
 
-        .vinyl-record {
-            transition: transform 0.5s ease;
-        }
-        .spin-slow {
-            animation: spin 6s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
 
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        .transform-style-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .backface-hidden {
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-            transform: rotateY(180deg);
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 20px 15px;
+      min-height: 100vh;
+    }
 
-        .floating-bg {
-            animation: float 8s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-    </style>
+    .container {
+      max-width: 680px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--soft-shadow);
+      border: 1px solid #e0f2fe;
+    }
+
+    /* 1. Header Section */
+    .header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+      border-radius: 24px;
+      border: 1px solid #bae6fd;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--dark-blue);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      color: #0c4a6e;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* 2. Music Player Section */
+    .player-card {
+      text-align: center;
+    }
+
+    .vinyl-container {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
+    }
+
+    .vinyl {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #0f172a 35%, #334155 36%, #0f172a 38%, #0f172a 60%, #1e293b 61%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      animation: spin 8s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .vinyl.playing {
+      animation-play-state: running;
+    }
+
+    .vinyl-center {
+      width: 45px;
+      height: 45px;
+      background: #38bdf8;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 10px;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .song-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0369a1;
+      margin-bottom: 4px;
+    }
+
+    .song-artist {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: var(--dark-blue);
+      padding: 8px 16px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #bae6fd;
+    }
+
+    .btn-main {
+      background: var(--dark-blue);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+    }
+
+    .btn-main:hover {
+      background: #0369a1;
+    }
+
+    /* 3. Photos & Thank You Section */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .photo-item {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid #e0f2fe;
+    }
+
+    .thank-you-text {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    .thank-you-text p {
+      margin-bottom: 14px;
+    }
+
+    /* 4. Mini Game Section */
+    .game-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+      text-align: center;
+    }
+
+    .game-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0284c7;
+      margin-bottom: 6px;
+    }
+
+    .game-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .cards-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .secret-card {
+      background: #ffffff;
+      border: 2px dashed #7dd3fc;
+      border-radius: 16px;
+      padding: 18px 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #0369a1;
+    }
+
+    .secret-card:hover {
+      transform: translateY(-3px);
+      background: #e0f2fe;
+    }
+
+    .game-result {
+      min-height: 50px;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #bae6fd;
+      font-size: 0.9rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 5. Video Section */
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .video-container {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #e0f2fe;
+      background: #000;
+    }
+
+    .video-container video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+    }
+
+    /* 6. Sweet Messages / Interactive Tabs */
+    .comfort-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tab-btn {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0284c7;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: #38bdf8;
+      color: white;
+      border-color: #38bdf8;
+    }
+
+    .comfort-box {
+      background: #f8fafc;
+      border-left: 4px solid #38bdf8;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #334155;
+      min-height: 90px;
+    }
+
+    /* 7. Apology Section */
+    .apology-box {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #0f172a;
+    }
+
+    /* 8. Closing & Bouquet Section */
+    .closing-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .photo-landscape {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid #e0f2fe;
+    }
+
+    .bouquet-box {
+      text-align: center;
+      padding: 20px;
+      background: #e0f2fe;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .bouquet-icon {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    .signature {
+      font-family: 'Sacramento', cursive;
+      font-size: 2.2rem;
+      color: #0284c7;
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0c4a6e;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
 </head>
-<body class="text-pink-950 min-h-screen pb-24 select-none relative">
+<body>
 
-    <canvas id="fxCanvas"></canvas>
+  <div class="container">
 
-    <div class="fixed top-10 left-5 text-3xl opacity-20 floating-bg pointer-events-none">🌸</div>
-    <div class="fixed top-1/3 right-5 text-4xl opacity-20 floating-bg pointer-events-none" style="animation-delay: 2s;">✨</div>
-    <div class="fixed bottom-20 left-8 text-3xl opacity-20 floating-bg pointer-events-none" style="animation-delay: 4s;">💖</div>
-
-    <!-- Header Section -->
-    <header class="text-center py-12 px-4 bg-white/70 backdrop-blur-md rounded-b-[50px] shadow-sm border-b border-pink-100 relative overflow-hidden">
-        <div class="max-w-xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100 text-pink-600 text-xs font-bold mb-4 shadow-inner">
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                <span>A Little Space Made Just For You</span>
-            </div>
-            
-            <h1 class="text-3xl md:text-5xl font-bold text-pink-600 mb-3 font-heading tracking-wide">
-                Hello, My Bestieee! 💕
-            </h1>
-            
-            <p class="text-pink-800 text-sm md:text-base leading-relaxed max-w-md mx-auto font-medium px-2">
-                Web sederhana yang aku buat khusus hehe, maaf yaww banyak kurangnyaaa... Semoga suka 💕
-            </p>
-            
-            <div class="mt-4 inline-block bg-pink-200/60 px-4 py-1 rounded-full border border-pink-300/50">
-                <p class="text-xs text-pink-700 font-bold tracking-wider">With love, Nala 🌷</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-2xl mx-auto px-4 mt-8 space-y-9">
-
-        <!-- Music Player Widget -->
-        <section class="bg-white/80 backdrop-blur-md rounded-3xl p-5 shadow-sm border border-pink-200/80 flex items-center justify-between gap-4">
-            <div class="flex items-center space-x-4">
-                <div class="relative w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center shadow-md overflow-hidden border-2 border-pink-300">
-                    <div id="vinylDisc" class="vinyl-record w-full h-full flex items-center justify-center bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-900">
-                        <div class="w-5 h-5 bg-pink-400 rounded-full border-2 border-white flex items-center justify-center">
-                            <div class="w-1.5 h-1.5 bg-gray-900 rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <span class="text-[10px] font-bold text-pink-400 uppercase tracking-widest block">BACKGROUND MUSIC</span>
-                    <p class="text-xs md:text-sm font-bold text-pink-800" id="songTitle">Press play or tap anywhere for vibes ✨</p>
-                </div>
-            </div>
-
-            <audio id="myAudio" loop>
-                <source src="lagu.mp3" type="audio/mpeg">
-            </audio>
-            
-            <button onclick="toggleMusic(event)" id="playBtn" class="bg-pink-500 hover:bg-pink-600 active:scale-95 text-white px-4 py-2.5 rounded-2xl text-xs font-bold flex items-center gap-2 transition shadow-md shrink-0">
-                <i data-lucide="play" class="w-4 h-4" id="playIcon"></i>
-                <span id="playText">Putar Musik</span>
-            </button>
-        </section>
-
-        <!-- Interactive Mood Selector -->
-        <section class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-pink-200">
-            <div class="flex items-center gap-2 mb-2">
-                <i data-lucide="smile" class="text-pink-500 w-5 h-5"></i>
-                <h2 class="text-lg font-bold text-pink-700 font-heading">How are you feeling right now?</h2>
-            </div>
-            <p class="text-xs text-pink-500 mb-4">Tap a mood below to unlock a warm note tailored for you today:</p>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-                <button onclick="setMood('overwhelmed', event)" class="bg-pink-50 hover:bg-pink-100 border border-pink-200 p-3 rounded-2xl text-center transition active:scale-95">
-                    <span class="text-xl block mb-1">☁️</span>
-                    <span class="text-xs font-bold text-pink-800">Overwhelmed</span>
-                </button>
-                <button onclick="setMood('tired', event)" class="bg-pink-50 hover:bg-pink-100 border border-pink-200 p-3 rounded-2xl text-center transition active:scale-95">
-                    <span class="text-xl block mb-1">🌧️</span>
-                    <span class="text-xs font-bold text-pink-800">Low Energy</span>
-                </button>
-                <button onclick="setMood('boost', event)" class="bg-pink-50 hover:bg-pink-100 border border-pink-200 p-3 rounded-2xl text-center transition active:scale-95">
-                    <span class="text-xl block mb-1">🌸</span>
-                    <span class="text-xs font-bold text-pink-800">Need Boost</span>
-                </button>
-                <button onclick="setMood('chilling', event)" class="bg-pink-50 hover:bg-pink-100 border border-pink-200 p-3 rounded-2xl text-center transition active:scale-95">
-                    <span class="text-xl block mb-1">✨</span>
-                    <span class="text-xs font-bold text-pink-800">Just Chilling</span>
-                </button>
-            </div>
-
-            <div id="moodDisplay" class="bg-pink-50/80 rounded-2xl p-4 border border-pink-200 text-xs text-pink-900 leading-relaxed font-medium transition-all min-h-[70px] flex items-center justify-center text-center">
-                <span class="text-pink-400 italic">Select your mood above to read your note! 🌷</span>
-            </div>
-        </section>
-
-        <!-- 3D Interactive Flip Cards -->
-        <section class="space-y-3">
-            <div class="flex items-center gap-2 mb-1 px-1">
-                <i data-lucide="heart" class="text-pink-500 w-5 h-5 fill-pink-400"></i>
-                <h2 class="text-lg font-bold text-pink-700 font-heading">Little Reminders (Tap to flip 🃏)</h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                <div class="perspective-1000 h-52 cursor-pointer" onclick="flipCard(this, event)">
-                    <div class="card-inner relative w-full h-full transform-style-3d">
-                        <div class="absolute inset-0 bg-white/90 backdrop-blur border border-pink-200 rounded-3xl p-5 flex flex-col justify-between items-center text-center backface-hidden shadow-sm">
-                            <span class="text-3xl mt-2">💌</span>
-                            <p class="font-bold text-pink-700 text-sm font-heading">A note of gratitude</p>
-                            <span class="text-[11px] text-pink-400 font-semibold">Click to flip ➔</span>
-                        </div>
-                        <div class="absolute inset-0 bg-pink-100 border border-pink-300 rounded-3xl p-5 flex items-center justify-center text-center backface-hidden rotate-y-180 shadow-sm overflow-y-auto">
-                            <p class="text-xs text-pink-900 leading-relaxed font-medium">
-                                Thank you for being such an irreplaceable friend. In a world where everything changes so fast, having someone as constant, kind, and understanding as you is a true blessing that I never take for granted.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="perspective-1000 h-52 cursor-pointer" onclick="flipCard(this, event)">
-                    <div class="card-inner relative w-full h-full transform-style-3d">
-                        <div class="absolute inset-0 bg-white/90 backdrop-blur border border-pink-200 rounded-3xl p-5 flex flex-col justify-between items-center text-center backface-hidden shadow-sm">
-                            <span class="text-3xl mt-2">🌱</span>
-                            <p class="font-bold text-pink-700 text-sm font-heading">On overwhelming days</p>
-                            <span class="text-[11px] text-pink-400 font-semibold">Click to flip ➔</span>
-                        </div>
-                        <div class="absolute inset-0 bg-pink-100 border border-pink-300 rounded-3xl p-5 flex items-center justify-center text-center backface-hidden rotate-y-180 shadow-sm overflow-y-auto">
-                            <p class="text-xs text-pink-900 leading-relaxed font-medium">
-                                Whenever things feel like too much, take a step back and pause. You don't have to figure out your entire future or solve everything today. Just focus on taking one gentle step at a time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="perspective-1000 h-52 cursor-pointer" onclick="flipCard(this, event)">
-                    <div class="card-inner relative w-full h-full transform-style-3d">
-                        <div class="absolute inset-0 bg-white/90 backdrop-blur border border-pink-200 rounded-3xl p-5 flex flex-col justify-between items-center text-center backface-hidden shadow-sm">
-                            <span class="text-3xl mt-2">☕</span>
-                            <p class="font-bold text-pink-700 text-sm font-heading">A quiet reminder</p>
-                            <span class="text-[11px] text-pink-400 font-semibold">Click to flip ➔</span>
-                        </div>
-                        <div class="absolute inset-0 bg-pink-100 border border-pink-300 rounded-3xl p-5 flex items-center justify-center text-center backface-hidden rotate-y-180 shadow-sm overflow-y-auto">
-                            <p class="text-xs text-pink-900 leading-relaxed font-medium">
-                                Give yourself far more credit. You have navigated through difficult days before, and you will get through whatever is in front of you now. Your quiet strength is truly admirable.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="perspective-1000 h-52 cursor-pointer" onclick="flipCard(this, event)">
-                    <div class="card-inner relative w-full h-full transform-style-3d">
-                        <div class="absolute inset-0 bg-white/90 backdrop-blur border border-pink-200 rounded-3xl p-5 flex flex-col justify-between items-center text-center backface-hidden shadow-sm">
-                            <span class="text-3xl mt-2">✨</span>
-                            <p class="font-bold text-pink-700 text-sm font-heading">Safe space for you</p>
-                            <span class="text-[11px] text-pink-400 font-semibold">Click to flip ➔</span>
-                        </div>
-                        <div class="absolute inset-0 bg-pink-100 border border-pink-300 rounded-3xl p-5 flex items-center justify-center text-center backface-hidden rotate-y-180 shadow-sm overflow-y-auto">
-                            <p class="text-xs text-pink-900 leading-relaxed font-medium">
-                                No matter how busy life gets or how much time passes without talking, please remember my door is always open. You will always have a safe space with me whenever you need it.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Read When Section (Extremely Long Letters) -->
-        <section class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-pink-200">
-            <div class="flex items-center gap-2 mb-2">
-                <i data-lucide="mail" class="text-pink-500 w-5 h-5"></i>
-                <h2 class="text-lg font-bold text-pink-700 font-heading">Read When Letters 💌</h2>
-            </div>
-            <p class="text-xs text-pink-500 mb-4">Open an envelope depending on what you're experiencing today:</p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <button onclick="openNote('sad', event)" class="bg-pink-50 hover:bg-pink-100/80 border border-pink-200 p-4 rounded-2xl text-left transition flex items-center justify-between active:scale-98 shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl">🌧️</span>
-                        <div>
-                            <p class="text-xs font-bold text-pink-800">When today feels heavy</p>
-                            <span class="text-[10px] text-pink-400">Open long letter</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-pink-400"></i>
-                </button>
-
-                <button onclick="openNote('tired', event)" class="bg-pink-50 hover:bg-pink-100/80 border border-pink-200 p-4 rounded-2xl text-left transition flex items-center justify-between active:scale-98 shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl">☕</span>
-                        <div>
-                            <p class="text-xs font-bold text-pink-800">When you're drained</p>
-                            <span class="text-[10px] text-pink-400">Open long letter</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-pink-400"></i>
-                </button>
-
-                <button onclick="openNote('doubt', event)" class="bg-pink-50 hover:bg-pink-100/80 border border-pink-200 p-4 rounded-2xl text-left transition flex items-center justify-between active:scale-98 shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl">⭐</span>
-                        <div>
-                            <p class="text-xs font-bold text-pink-800">When you doubt yourself</p>
-                            <span class="text-[10px] text-pink-400">Open long letter</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-pink-400"></i>
-                </button>
-
-                <button onclick="openNote('miss', event)" class="bg-pink-50 hover:bg-pink-100/80 border border-pink-200 p-4 rounded-2xl text-left transition flex items-center justify-between active:scale-98 shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl">🧸</span>
-                        <div>
-                            <p class="text-xs font-bold text-pink-800">When you want to catch up</p>
-                            <span class="text-[10px] text-pink-400">Open long letter</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-pink-400"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- MINI GAMES SECTION -->
-        <section class="space-y-6">
-            <div class="flex items-center gap-2 mb-1 px-1">
-                <i data-lucide="gamepad-2" class="text-pink-500 w-6 h-6"></i>
-                <h2 class="text-xl font-bold text-pink-700 font-heading">Fun Little Games 🎮</h2>
-            </div>
-
-            <!-- Game 1: Fortune Cookie -->
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-pink-200 text-center">
-                <div class="flex items-center justify-center gap-2 mb-1">
-                    <i data-lucide="cookie" class="text-pink-500"></i>
-                    <h3 class="text-base font-bold text-pink-700 font-heading">1. Crack a Fortune Cookie 🥠</h3>
-                </div>
-                <p class="text-xs text-pink-500 mb-3">Tap the cookie to reveal your daily message!</p>
-                
-                <div class="bg-pink-50 rounded-2xl p-5 flex flex-col items-center justify-center min-h-[140px]">
-                    <button onclick="crackCookie(event)" id="cookieBtn" class="text-5xl transition transform active:scale-75 hover:scale-110 cursor-pointer my-1">
-                        🥠
-                    </button>
-                    <div id="cookieResult" class="text-xs text-pink-900 mt-2 font-medium leading-relaxed min-h-[35px] flex items-center justify-center px-2">
-                        <span class="text-pink-400 italic">"Click the cookie to open!"</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Game 2: Bubble Pop Energy Booster -->
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-pink-200 text-center">
-                <div class="flex items-center justify-center gap-2 mb-1">
-                    <i data-lucide="sparkles" class="text-pink-500"></i>
-                    <h3 class="text-base font-bold text-pink-700 font-heading">2. Mood Bubble Popper 🫧</h3>
-                </div>
-                <p class="text-xs text-pink-500 mb-3">Pop bubbles to stack your combo points!</p>
-                
-                <div class="bg-pink-50 rounded-2xl p-5 flex flex-col items-center justify-center min-h-[150px]">
-                    <div class="flex items-center gap-4 text-xs font-bold text-pink-600 mb-1">
-                        <p>Energy: <span id="score" class="text-pink-600 text-base font-heading">0</span></p>
-                        <p>Combo: <span id="combo" class="text-pink-500 text-base font-heading">x1</span></p>
-                    </div>
-                    <button onclick="popHeart(event)" id="popBtn" class="text-5xl transition active:scale-75 select-none cursor-pointer my-2 hover:scale-110">
-                        💖
-                    </button>
-                    <p id="gameMessage" class="text-xs text-pink-700 font-medium min-h-[20px]"></p>
-                </div>
-            </div>
-
-            <!-- Game 3: Surprise Comfort Capsule -->
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-pink-200 text-center">
-                <div class="flex items-center justify-center gap-2 mb-1">
-                    <i data-lucide="gift" class="text-pink-500"></i>
-                    <h3 class="text-base font-bold text-pink-700 font-heading">3. Open a Mystery Capsule 🎁</h3>
-                </div>
-                <p class="text-xs text-pink-500 mb-4">Click below for a random comfort reminder or virtual warmth!</p>
-                
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button onclick="getCompliment(event)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-4 py-2.5 rounded-2xl text-xs transition shadow-sm active:scale-95">
-                        ✨ Open Reminder
-                    </button>
-                    <button onclick="sendVirtualHug(event)" class="bg-pink-100 hover:bg-pink-200 text-pink-800 font-bold px-4 py-2.5 rounded-2xl text-xs transition active:scale-95">
-                        🫂 Send Virtual Hug
-                    </button>
-                </div>
-
-                <div id="capsuleResult" class="hidden mt-4 p-4 bg-pink-50 rounded-2xl border border-pink-200 text-xs text-pink-900 leading-relaxed text-left">
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="text-center mt-12 text-xs text-pink-500 space-y-1">
-        <p>Hope your days are filled with genuine peace & cozy moments 🌸</p>
-        <p class="font-bold text-pink-600">Always, Nala ✨</p>
-    </footer>
-
-    <!-- Pop-up Letter Modal (Container buat surat panjang) -->
-    <div id="noteModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl border border-pink-200 text-center relative max-h-[85vh] flex flex-col">
-            <div class="text-4xl mb-2" id="modalEmoji">💌</div>
-            <h3 class="text-base font-bold text-pink-700 mb-3 font-heading" id="modalTitle">Note Title</h3>
-            
-            <!-- Scrollable Body for Long Text -->
-            <div class="overflow-y-auto my-2 pr-1 text-left">
-                <p class="text-xs text-pink-900 leading-relaxed whitespace-pre-line font-medium" id="modalBody">Note content...</p>
-            </div>
-
-            <button onclick="closeNote(event)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-6 py-2.5 rounded-2xl text-xs transition active:scale-95 shadow-sm mt-4">
-                Close Letter 💖
-            </button>
-        </div>
+    <!-- 1. Header / Sapaan Awal -->
+    <div class="header">
+      <span class="header-badge">hello selma! 𖹭 ֶָ֢</span>
+      <h1>welcome to your tiny safe space ✦</h1>
+      <p>a little digital corner made specially for my favorite low-maintenance bestie, tintun. rehat sebentar di sini ya!</p>
     </div>
 
-    <script>
-        lucide.createIcons();
+    <!-- 2. Music Player -->
+    <div class="card player-card">
+      <div class="section-title" style="justify-content: center;">
+        <span>𐙚</span> bestie playlist <span>♫</span>
+      </div>
+      
+      <div class="vinyl-container">
+        <div class="vinyl" id="vinyl">
+          <div class="vinyl-center">𖹭</div>
+        </div>
+      </div>
 
-        /* PARTICLE EFFECT ON CLICK */
-        const canvas = document.getElementById('fxCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
+      <div class="song-title" id="songTitle">HELLO</div>
+      <div class="song-artist" id="songArtist">TREASURE</div>
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+      <div class="controls">
+        <button class="btn" onclick="prevSong()">⏮ Prev</button>
+        <button class="btn btn-main" id="playBtn" onclick="togglePlay()">▶ Play</button>
+        <button class="btn" onclick="nextSong()">Next ⏭</button>
+      </div>
 
-        const particleTypes = ['💖', '✨', '🌸', '⭐', '🌷'];
+      <audio id="audioPlayer" src="lagu1.mp3"></audio>
+    </div>
 
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.symbol = particleTypes[Math.floor(Math.random() * particleTypes.length)];
-                this.size = Math.random() * 14 + 12;
-                this.vx = (Math.random() - 0.5) * 4;
-                this.vy = (Math.random() - 0.5) * 4 - 2;
-                this.alpha = 1;
-                this.decay = Math.random() * 0.02 + 0.015;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.alpha -= this.decay;
-            }
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = Math.max(0, this.alpha);
-                ctx.font = `${this.size}px sans-serif`;
-                ctx.fillText(this.symbol, this.x, this.y);
-                ctx.restore();
-            }
-        }
+    <!-- 3. Photos & Thank You Message -->
+    <div class="card">
+      <div class="photo-grid">
+        <img src="foto1.jpg" alt="Foto Selma 1" class="photo-item" />
+        <img src="foto2.jpg" alt="Foto Selma 2" class="photo-item" />
+      </div>
 
-        function createBurst(x, y, count = 8) {
-            for (let i = 0; i < count; i++) {
-                particles.push(new Particle(x, y));
-            }
-        }
+      <div class="thank-you-text">
+        <p>
+          dear tintun 𖹭 ֶָ֢
+        </p>
+        <p>
+          makasih ya udah mau jadi sahabat gue dari dulu sampai sekarang. kalo dipikir-pikir kita emang tipe pertemanan yang jarang chat tiap hari atau suka lovey dovey gajelas, tapi anehnya tiap obrolan dimulai lagi tuh rasanya tetep deket dan ga pernah berubah sedikit pun.
+        </p>
+        <p>
+          makasih udah selalu jadi temen curhat paling aman, tempat cerita hal-hal random, temen gosip seru, dan sosok kaka yang selalu ngasih saran masuk akal. yang paling gue syukuri, lo ga pernah sekalipun ngejudge apa pun yang gue ceritain. respon lo selalu positif, adem, dan ga lupa selalu diselipin lelucon yang beneran lucu jadi pas ngobrol ama lo tuh ga pernah kaku sama sekali.
+        </p>
+        <p>
+          makasih banyak ya tun, udah mau hadir dan jadi bagian berharga di hidup gue ☘︎
+        </p>
+      </div>
+    </div>
 
-        window.addEventListener('click', (e) => {
-            createBurst(e.clientX, e.clientY, 6);
-            
-            if (!isPlaying) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    vinylDisc.classList.add('spin-slow');
-                    playBtn.classList.replace('bg-pink-500', 'bg-pink-600');
-                    playText.innerText = 'Pause Musik';
-                    playIcon.setAttribute('data-lucide', 'pause');
-                    lucide.createIcons();
-                }).catch(() => {});
-            }
-        });
+    <!-- 4. Anti-Mainstream Mini Game -->
+    <div class="card game-card">
+      <div class="game-title">✦ tintun's daily mystery box ✦</div>
+      <div class="game-desc">klik salah satu kartu di bawah buat nemuin voucher/pesan rahasia hari ini!</div>
 
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((p, index) => {
-                p.update();
-                p.draw();
-                if (p.alpha <= 0) particles.splice(index, 1);
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
+      <div class="cards-wrapper">
+        <div class="secret-card" onclick="playGame(1)">🎁 Box #1</div>
+        <div class="secret-card" onclick="playGame(2)">🎁 Box #2</div>
+        <div class="secret-card" onclick="playGame(3)">🎁 Box #3</div>
+        <div class="secret-card" onclick="playGame(4)">🎁 Box #4</div>
+      </div>
 
-        /* MUSIC PLAYER */
-        const audio = document.getElementById('myAudio');
-        const playBtn = document.getElementById('playBtn');
-        const playIcon = document.getElementById('playIcon');
-        const playText = document.getElementById('playText');
-        const vinylDisc = document.getElementById('vinylDisc');
-        let isPlaying = false;
+      <div class="game-result" id="gameResult">
+        pilih salah satu box di atas yaa 𖹭
+      </div>
+    </div>
 
-        function toggleMusic(e) {
-            if (e) e.stopPropagation();
-            if (isPlaying) {
-                audio.pause();
-                vinylDisc.classList.remove('spin-slow');
-                playBtn.classList.replace('bg-pink-600', 'bg-pink-500');
-                playText.innerText = 'Putar Musik';
-                playIcon.setAttribute('data-lucide', 'play');
-            } else {
-                audio.play().catch(err => alert("Jangan lupa upload file 'lagu.mp3' di GitHub kamu yaa!"));
-                vinylDisc.classList.add('spin-slow');
-                playBtn.classList.replace('bg-pink-500', 'bg-pink-600');
-                playText.innerText = 'Pause Musik';
-                playIcon.setAttribute('data-lucide', 'pause');
-            }
-            isPlaying = !isPlaying;
-            lucide.createIcons();
-        }
+    <!-- 5. Video Section -->
+    <div class="card video-section">
+      <div class="section-title">
+        <span>🎬</span> random core memories
+      </div>
+      
+      <div class="video-container">
+        <video controls>
+          <source src="video1.mp4" type="video/mp4" />
+          browser kamu tidak mendukung pemutar video.
+        </video>
+      </div>
 
-        /* MOOD SELECTOR */
-        const moodMessages = {
-            overwhelmed: "☁️ It is completely okay to take a step back when everything feels like too much. Turn off your notifications, take a deep breath, and do one small comforting thing for yourself right now. The world can wait while you recharge.",
-            tired: "🌧️ You have been carrying so much energy today. Please don't force yourself to stay productive tonight. Get into cozy clothes, rest your mind, and just relax. Tomorrow is a brand new day with fresh energy.",
-            boost: "🌸 Quick reminder: You bring so much light and warm energy into the lives of people around you, even on days when you feel invisible. Never forget how genuinely appreciated and loved you are!",
-            chilling: "✨ Hope you are having a peaceful day! May your drink stay warm, your favorite songs play on repeat, and your mind stay totally calm today. Enjoy your cozy moment!"
-        };
+      <div class="video-container">
+        <video controls>
+          <source src="video2.mp4" type="video/mp4" />
+          browser kamu tidak mendukung pemutar video.
+        </video>
+      </div>
+    </div>
 
-        function setMood(key, e) {
-            if (e) e.stopPropagation();
-            const display = document.getElementById('moodDisplay');
-            display.innerHTML = `<span class="font-semibold text-pink-800">${moodMessages[key]}</span>`;
-            createBurst(e.clientX, e.clientY, 10);
-        }
+    <!-- 6. Sweet Message / Comfort Section -->
+    <div class="card">
+      <div class="section-title">
+        <span>🧸</span> sweet message for tintun
+      </div>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px;">
+        kalo lagi ngerasa ga enak hari ini, coba klik tombol yang sesuai kondisi perasaan lo ya:
+      </p>
 
-        /* 3D FLIP CARDS */
-        function flipCard(cardContainer, e) {
-            if (e) e.stopPropagation();
-            const cardInner = cardContainer.querySelector('.card-inner');
-            cardInner.classList.toggle('rotate-y-180');
-        }
+      <div class="comfort-tabs">
+        <button class="tab-btn active" onclick="showComfort('cape', this)">kalo cape baca ini</button>
+        <button class="tab-btn" onclick="showComfort('sedih', this)">kalo sedih baca ini</button>
+        <button class="tab-btn" onclick="showComfort('kecewa', this)">kalo kecewa baca ini</button>
+        <button class="tab-btn" onclick="showComfort('overthinking', this)">kalo overthinking baca ini</button>
+      </div>
 
-        /* READ WHEN LETTERS (TEKS PANJANG, TULUS, DAN DEEP) */
-        const notes = {
-            sad: {
-                title: "When Today Feels Heavy 🌧️",
-                emoji: "🌧️",
-                text: "Hey, I know today feels heavier than usual, and I just want to gently remind you that it is completely okay to not have everything under control right now.\n\nLife has a way of throwing unexpected weight onto our shoulders, and you don't always have to put on a brave face or pretend that you're totally fine when you're hurting inside. Feeling sad or overwhelmed isn't a sign of weakness, it's just proof that you are human and that you care deeply.\n\nTake a slow, deep breath. Let yourself rest without feeling guilty about taking a pause. You don't need to fix everything today, and you certainly don't have to carry this heavy feeling all by yourself.\n\nIf you ever want to talk, vent without judgment, or just sit together in quiet comfort without explaining anything at all, please remember that I am always here for you. Take extra good care of yourself today, okay?"
-            },
-            tired: {
-                title: "When You're Drained ☕",
-                emoji: "☕",
-                text: "You've been giving so much of your time, effort, and heart to everything and everyone around you lately, haven't you?\n\nI want to remind you that rest isn't something you have to earn after reaching a certain milestone or finishing every single task on your list. Rest is a necessity, not a reward.\n\nThe world will keep turning even if you decide to hit pause, turn off your phone notifications, and do absolutely nothing productive for the rest of the day.\n\nPut your responsibilities aside for a little while, get into something warm and cozy, listen to soothing music, and let your mind rest. You have done more than enough today, and I am genuinely proud of how hard you've been trying. Take care of your energy first."
-            },
-            doubt: {
-                title: "When You Doubt Yourself ⭐",
-                emoji: "⭐",
-                text: "It's so easy to fall into the rabbit hole of self-doubt and feel like everyone else is moving forward effortlessly while you're standing still or struggling.\n\nBut please stop comparing your quiet behind-the-scenes moments to other people's highlight reels. Everyone is navigating their own hidden struggles and timeline, and yours is no less valid.\n\nYou possess a unique kindness, resilience, and warmth that bring so much comfort to the people around you, even when you can't see it in yourself. Moving quietly at your own pace is still moving forward.\n\nDon't let a difficult day or a temporary bump in the road make you feel like you aren't doing well. Trust the journey you're on, give yourself the credit you truly deserve, and keep going."
-            },
-            miss: {
-                title: "When You Want to Catch Up 🧸",
-                emoji: "🧸",
-                text: "Life moves pretty fast, and we all get caught up in our daily routines, work, and endless responsibilities. But I hope you know that no matter how busy things get, you are always on my mind.\n\nWe don't need fancy plans or hours of preparation to catch up. Whether it's grabbing a quick cup of coffee, having a random late night chat, or simply exchanging silly memes throughout the day, I'd love to hang out whenever you have some free time.\n\nNo formal catch-ups, expectations, or explanations needed, just send me a message whenever you feel like talking. I am always just one text away!"
-            }
-        };
+      <div class="comfort-box" id="comfortBox">
+        istirahat dulu ya tun. dunia emang suka rame dan capek, tapi lo udah berusaha sebaik mungkin hari ini. rehat sejenak, lo pantes dapet ketenangan 𖹭
+      </div>
 
-        function openNote(key, e) {
-            if (e) e.stopPropagation();
-            const data = notes[key];
-            document.getElementById('modalEmoji').innerText = data.emoji;
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalBody').innerText = data.text;
-            document.getElementById('noteModal').classList.remove('hidden');
-        }
+      <p style="margin-top: 16px; font-size: 0.9rem; color: #0284c7; font-weight: 600; text-align: center;">
+        inget ya tun, lo ga pernah sendirian. kapan pun lo butuh tempat curhat, gue selalu ada di sini ✦
+      </p>
+    </div>
 
-        function closeNote(e) {
-            if (e) e.stopPropagation();
-            document.getElementById('noteModal').classList.add('hidden');
-        }
+    <!-- 7. Apology Section -->
+    <div class="card">
+      <div class="section-title">
+        <span>🤍</span> a little sorry from me
+      </div>
+      <div class="apology-box">
+        gue juga mau minta maaf ya tun kalo selama ini masih banyak kurangnya jadi temen. kadang suka slow response, belum bisa selalu ada tiap saat, atau mungkin ada sikap gue yang kurang berkenan. makasih banyak udah selalu sabar dan ngertiin gue selama ini 𖹭 ֶָ֢
+      </div>
+    </div>
 
-        /* GAME 1: FORTUNE COOKIE */
-        const fortunes = [
-            "🥠 'A quiet moment today will bring you the exact peace and clarity you need right now.'",
-            "🥠 'You are doing far better than you realize. Keep going at your own comfortable pace.'",
-            "🥠 'Something small, sweet, and unexpected will bring a warm smile to your face today.'",
-            "🥠 'Don't rush the process. Beautiful things take their own sweet time to bloom.'",
-            "🥠 'Your presence brings genuine comfort and warmth to the people around you.'"
-        ];
+    <!-- 8. Closing & Bouquet -->
+    <div class="card">
+      <div class="section-title">
+        <span>❀</span> forever besties
+      </div>
 
-        function crackCookie(e) {
-            if (e) e.stopPropagation();
-            const cookieBtn = document.getElementById('cookieBtn');
-            const result = document.getElementById('cookieResult');
-            
-            cookieBtn.innerText = '🥠✨';
-            setTimeout(() => cookieBtn.innerText = '🥠', 300);
+      <div class="closing-photos">
+        <img src="foto3.jpg" alt="Foto Landscape 1" class="photo-landscape" />
+        <img src="foto4.jpg" alt="Foto Landscape 2" class="photo-landscape" />
+      </div>
 
-            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-            result.innerHTML = `<span class="font-semibold text-pink-800">${randomFortune}</span>`;
-            createBurst(e.clientX, e.clientY, 12);
-        }
+      <div class="bouquet-box">
+        <div class="bouquet-icon">💐𖹭🪻</div>
+        <p style="font-weight: 600; color: #0369a1; font-size: 0.95rem;">
+          a virtual bouquet of friendship for you!
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+          stay healthy, stay happy, and stay as you are ✧
+        </p>
+      </div>
 
-        /* GAME 2: BUBBLE POPPER */
-        let score = 0;
-        let combo = 1;
-        let lastClickTime = Date.now();
-        const bubbleEmojis = ['💖', '🌸', '✨', '🎀', '⭐', '🌷'];
+      <div class="signature">
+        tertanda, nini 𖹭
+      </div>
+    </div>
 
-        function popHeart(e) {
-            if (e) e.stopPropagation();
-            const currentTime = Date.now();
-            if (currentTime - lastClickTime < 600) {
-                combo++;
-            } else {
-                combo = 1;
-            }
-            lastClickTime = currentTime;
+  </div>
 
-            score += combo;
-            document.getElementById('score').innerText = score;
-            document.getElementById('combo').innerText = `x${combo}`;
-            
-            const popBtn = document.getElementById('popBtn');
-            popBtn.innerText = bubbleEmojis[Math.floor(Math.random() * bubbleEmojis.length)];
-            
-            const msgs = [
-                "Keep going!", "Take a deep breath ✨", "You've got this!", 
-                "Hope today treats you well 🌸", "Don't forget to rest!"
-            ];
-            document.getElementById('gameMessage').innerText = msgs[Math.floor(Math.random() * msgs.length)];
-            
-            createBurst(e.clientX, e.clientY, 8 + combo);
-        }
+  <script>
+    /* 1. Music Player Logic */
+    const songs = [
+      { title: "HELLO", artist: "TREASURE", src: "lagu1.mp3" },
+      { title: "I'm Only Me When I'm With You", artist: "Taylor Swift", src: "lagu2.mp3" },
+      { title: "BFF", artist: "TWS", src: "lagu3.mp3" }
+    ];
 
-        /* GAME 3: CAPSULE GENERATOR */
-        const compliments = [
-            "You don't have to have your whole life mapped out right now. Just focus on taking your next gentle step forward.",
-            "Your quiet effort, consistency, and kindness never go unnoticed. Keep going at your own pace.",
-            "Be extra kind to yourself today. You are doing the best you can with what you have right now.",
-            "Having you as a friend is honestly one of the best and most comforting parts of my life.",
-            "Never underestimate how much your presence alone brings comfort and peace to the people around you."
-        ];
+    let currentSongIndex = 0;
+    const audioPlayer = document.getElementById('audioPlayer');
+    const songTitle = document.getElementById('songTitle');
+    const songArtist = document.getElementById('songArtist');
+    const playBtn = document.getElementById('playBtn');
+    const vinyl = document.getElementById('vinyl');
 
-        function getCompliment(e) {
-            if (e) e.stopPropagation();
-            const res = document.getElementById('capsuleResult');
-            const randomMsg = compliments[Math.floor(Math.random() * compliments.length)];
-            res.innerHTML = `<strong>A gentle reminder for you:</strong><br><span class="mt-1 block">${randomMsg}</span>`;
-            res.classList.remove('hidden');
-        }
+    function loadSong(index) {
+      songTitle.textContent = songs[index].title;
+      songArtist.textContent = songs[index].artist;
+      audioPlayer.src = songs[index].src;
+    }
 
-        function sendVirtualHug(e) {
-            if (e) e.stopPropagation();
-            const res = document.getElementById('capsuleResult');
-            res.innerHTML = `<strong>🫂 Sending Warm Virtual Hugs!</strong><br><span class="mt-1 block">A cozy reminder that you are deeply appreciated and valued. Stay healthy, take things easy, and have a beautiful day ahead 💕</span><br><span class="text-[11px] text-pink-500 font-semibold mt-2 block">Warmly, Nala</span>`;
-            res.classList.remove('hidden');
-        }
-    </script>
+    function togglePlay() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playBtn.textContent = '⏸ Pause';
+        vinyl.classList.add('playing');
+      } else {
+        audioPlayer.pause();
+        playBtn.textContent = '▶ Play';
+        vinyl.classList.remove('playing');
+      }
+    }
+
+    function prevSong() {
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      loadSong(currentSongIndex);
+      audioPlayer.play();
+      playBtn.textContent = '⏸ Pause';
+      vinyl.classList.add('playing');
+    }
+
+    function nextSong() {
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      loadSong(currentSongIndex);
+      audioPlayer.play();
+      playBtn.textContent = '⏸ Pause';
+      vinyl.classList.add('playing');
+    }
+
+    /* 2. Mini Game Logic */
+    const rewards = [
+      "🎟️ VOUCHER: Free Sesi Curhat 24/7 Tanpa Batas Waktu + Dengerin Semua Cerita Random Lo!",
+      "🏆 REWARD: Gelar Sahabat Paling Anti-Judge & Pendengar Terbaik Se-Alam Raya!",
+      "🍰 VOUCHER: Bebas Minta Bantuan / Beliin Makanan Pas Nanti Ketemuan!",
+      "👑 REWARD: Sertifikat 'Satu-satunya Tintun' Yang Guyonannya Selalu Berhasil Bikin Ngakak!"
+    ];
+
+    function playGame(boxNumber) {
+      const resultBox = document.getElementById('gameResult');
+      const randomReward = rewards[Math.floor(Math.random() * rewards.length)];
+      resultBox.innerHTML = `<strong>Box #${boxNumber} Terbuka!</strong><br>${randomReward}`;
+    }
+
+    /* 3. Comfort Message Logic */
+    const comfortTexts = {
+      cape: "istirahat dulu ya tun. dunia emang suka rame dan capek, tapi lo udah berusaha sebaik mungkin hari ini. rehat sejenak, lo pantes dapet ketenangan 𖹭",
+      sedih: "boleh banget buat ngerasa sedih, ga usah ditahan-tahan ya. kalo butuh tempat buat numpahin semuanya, panggil gue kapan aja. gue bakal selalu dengerin 🫂",
+      kecewa: "kalo hal yang lo harapin ga sesuai ekspektasi, tetep inget kalo nilai diri lo ga berkurang sedikit pun. things will get better, slowly but surely 🌿",
+      overthinking: "tarik napas dalam-dalam dulu. Kebanyakan hal yang bikin kita takut di kepala itu belum tentu kejadian kok. everything is gonna be okay, step by step 🌙"
+    };
+
+    function showComfort(type, btnElement) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+      document.getElementById('comfortBox').textContent = comfortTexts[type];
+    }
+  </script>
 </body>
 </html>
